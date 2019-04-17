@@ -3,7 +3,7 @@ package stack.test;
 import stack.BasicStack;
 
 /*
-https://github.com/dlbunker/ps-data-structure-helpers/blob/master/src/java/CardStackApp.java
+	Test from: https://github.com/dlbunker/ps-data-structure-helpers/blob/master/src/java/CardStackApp.java
  */
 public class CardStackApp {
 	private BasicStack<String> stack = new BasicStack<>();

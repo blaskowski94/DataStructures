@@ -2,6 +2,9 @@ package list.test;
 
 import list.LinkedList;
 
+/*
+    Test from: https://github.com/dlbunker/ps-data-structure-helpers/blob/master/src/java/TrainLinkedListApp.java
+ */
 public class TrainLinkedListApp {
     private LinkedList<TrainCar> train = new LinkedList<>();
 

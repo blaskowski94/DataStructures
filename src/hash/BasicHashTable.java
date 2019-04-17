@@ -23,10 +23,13 @@ public class BasicHashTable<K, V> {
     }
 
     public void put(K key, V value) {
+        if (size == capacity) throw new IllegalStateException("HashTable is full");
         int hash = calculateHash(key);
 
+        // only increment size if we are not overriding an existing key
+        if (data[hash] == null) size++;
+
         data[hash] = new HashEntry(key, value);
-        size++;
     }
 
     public V delete(K key) {
@@ -59,17 +62,17 @@ public class BasicHashTable<K, V> {
 
     public boolean hasValue(V value) {
         for (int i = 0; i < capacity; i++) {
-            if(data[i] != null && data[i].getValue().equals(value)) return true;
+            if (data[i] != null && data[i].getValue().equals(value)) return true;
         }
         return false;
     }
 
     public int size() {
-        return this.size;
+        return size;
     }
 
     private int calculateHash(K key) {
-        int hash = (key.hashCode() % this.capacity);
+        int hash = (key.hashCode() % capacity);
 
         // deal with collisions
         while (data[hash] != null && !data[hash].getKey().equals(key)) {
